@@ -1,0 +1,18 @@
+.user-message {
+    font-size: 30px;
+    color: rgb(236, 220, 220);
+    font-weight: 400;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+
+@media screen and (max-width:600px){
+    .user-message {
+        font-size: 20px;
+        color: rgb(236, 220, 220);
+        font-weight: 400;
+        margin-top: 10px;
+        padding: 15px;
+    }
+}

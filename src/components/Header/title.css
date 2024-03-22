@@ -1,0 +1,17 @@
+h2 {
+    color: white;
+    font-size: 55px;
+}
+h2 span {
+    color: #f5673c;   
+    border: 1px solid #f5673c;
+    padding: 2px;
+    border-radius: 8px;
+}
+
+@media screen and (max-width:600px){
+    h2 {
+        color: white;
+        font-size: 35px;
+    }
+}

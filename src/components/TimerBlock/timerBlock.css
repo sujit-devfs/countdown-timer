@@ -1,0 +1,22 @@
+.block {
+  width: 120px;
+  height: 100px;
+  background: linear-gradient(#ff0f7b, #f89b29);
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.value {
+    font-size: 60px;
+    color: white;
+}
+
+.label {
+    font-size: 25px;
+    color: rgb(63, 62, 62);
+    margin-top: -20px;
+}
