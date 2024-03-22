@@ -9,6 +9,11 @@ h2 span {
     border-radius: 8px;
 }
 
+div img {
+    margin: 0 auto;
+    border: 2px solid #f5673c;
+}
+
 @media screen and (max-width:600px){
     h2 {
         color: white;

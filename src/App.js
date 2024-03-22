@@ -5,8 +5,10 @@ import UserInput from "./components/UserInput";
 import Button from "./components/Button";
 import TimerBlock from "./components/TimerBlock";
 import MessageForUser from "./components/MessageForUser";
+import sound from "./sound.mp3";
 
 function App() {
+  const audio = new Audio(sound);
   const [inputDate, setInputDate] = useState("");
   const [timeRemaining, setTimeRemaining] = useState({
     days: 0,
@@ -44,7 +46,7 @@ function App() {
     const currentDateTime = new Date().getTime();
 
     if (selectedDateTime <= currentDateTime) {
-      setUserMessage("Please select a future date and time.");
+      setUserMessage("Please select a future date and time.😊");
       setIsTimerActive(false);
       return;
     }
@@ -55,7 +57,7 @@ function App() {
     const maxFutureDateTime = maxFutureDate.getTime();
 
     if (selectedDateTime > maxFutureDateTime) {
-      setUserMessage("Please select a date and time within the next 99 days.");
+      setUserMessage("Please select a date and time within the next 99 days.☹️");
       setIsTimerActive(false);
       setInputDate("");
       return;
@@ -64,7 +66,7 @@ function App() {
     setInputDate(date);
     setUserMessage("");
   };
-
+  
   useEffect(() => {
     console.log("useEffect triggered. isTimerActive:", isTimerActive);
     if (isTimerActive && inputDate) {
@@ -76,7 +78,9 @@ function App() {
         if (difference <= 0) {
           clearInterval(intervalId);
           setIsTimerActive(false);
-          setUserMessage("Timer Completed");
+          setUserMessage(`Timer Completed🎊
+          🎉`);
+          audio.play();
           return;
         }
 
@@ -93,12 +97,14 @@ function App() {
 
       return () => clearInterval(intervalId);
     }
+    // eslint-disable-next-line
   }, [isTimerActive, inputDate]);
+
 
   return (
     <>
       <div className="container">
-        <Title />
+        <Title isTimerActive={isTimerActive}/>
         <UserInput handleDateChange={handleDateChange} />
         <Button
           onClick={isTimerActive ? cancelTimer : startTimer}
